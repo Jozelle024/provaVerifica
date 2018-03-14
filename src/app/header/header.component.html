@@ -8,26 +8,33 @@
       <button class="btn btn-success" (click)="changeBoolean(true)">Show</button>
       <button class="btn btn-danger" (click)="changeBoolean(false)">Hide</button>
     </div>
-  
-  
     <ul *ngIf="boolean" class="list-group">
         <li *ngFor="let array of arrayString" class="list-group-item">
           {{array}}
         </li>
     </ul>
   </section>
-  
 
   <section>
     <button class="btn btn-success" (click)="visualizza()">Visualizza</button>
     <button class="btn btn-primary" (click)="aggiungi()">Aggiungi</button>
 
-    <ul>
-      <li *ngFor="let dati of dati">
-         {{dati.id}} {{dati.name}}
-      </li>
-    </ul>
+    <table class="table">
+      <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Boolean</th>
+        <th>Button</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of dati">
+          <td scope="row">{{data.id}}</td>
+          <td>{{data.name}}</td>
+          <td>{{data.boolean}}</td>
+          <td><button class="btn btn-primary" (click)="visualizzaNelBody(data.name)">Show body</button></td>
+        </tr>
+      </tbody>
+      
+    </table>
   </section>
-
-  <app-body ></app-body>
 </div>

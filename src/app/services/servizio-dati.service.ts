@@ -7,7 +7,9 @@ import { of } from 'rxjs/observable/of';
 export class ServizioDatiService {
   dati: Dati[];
   constructor() {
-    this.dati = [{id: 5, name: 'Jozelle', boolean: true}];
+    this.dati = [{id: 1, name: 'Jozelle', boolean: true},
+                {id: 2, name: 'Lyn', boolean: false},
+                {id: 3, name: 'Arielle', boolean: false}];
   }
   estraiDati(): Observable<Dati[]> {
     return of(this.dati);

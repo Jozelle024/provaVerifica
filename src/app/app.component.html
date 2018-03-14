@@ -1,8 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="container">
-  <h2>Prova - Angular
-  </h2>
-  <app-header></app-header>
-</div>
+
+<h2>Prova - Angular
+</h2>
+<app-header (open)="riceviData($event)"></app-header>
+<app-body [datoRicevuto]="dataPassata"></app-body>
 
 <router-outlet></router-outlet>

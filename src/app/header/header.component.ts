@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ServizioDatiService } from '../services/servizio-dati.service';
 import { Dati } from '../models/dati';
+
 
 @Component({
   selector: 'app-header',
@@ -13,12 +14,12 @@ export class HeaderComponent implements OnInit {
   boolean: boolean;
   arrayString: string[];
   dati: Dati[];
+  @Output() open: EventEmitter<string> = new EventEmitter();
   constructor(private servizioDati: ServizioDatiService) {
     this.name = 'This is a string';
     this.id = 24;
     this.boolean = false;
     this.arrayString = ['This', 'is', 'an', 'array', 'of', 'string'];
-    /* this.dati = [{id: 5, name: 'jozelle', boolean: true}]; */
   }
 
   ngOnInit() {
@@ -35,6 +36,9 @@ export class HeaderComponent implements OnInit {
   aggiungi() {
    this.dati = this.servizioDati.aggiungiDati(this.dati, this.id, this.name, this.boolean);
     return this.dati;
-    }
+  }
 
+  visualizzaNelBody(dataName: string) {
+    this.open.emit(dataName);
+  }
 }

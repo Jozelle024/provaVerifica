@@ -7,13 +7,9 @@ import { Dati } from '../models/dati';
   styleUrls: ['./body.component.css']
 })
 export class BodyComponent implements OnInit {
-  @Input() dati: Dati[];
-  @Output() boolean;
-  constructor() { }
-
+  @Input() datoRicevuto: Dati;
+  constructor() {
+   }
   ngOnInit() {
-    console.log(this.dati);
   }
-
-
 }
