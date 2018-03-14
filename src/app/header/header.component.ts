@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
   boolean: boolean;
   arrayString: string[];
   dati: Dati[];
+  counter: number;
   @Output() open: EventEmitter<Dati> = new EventEmitter();
   constructor(private servizioDati: ServizioDatiService,
               private servizioMessaggi: MessagesService) {
@@ -28,7 +29,7 @@ export class HeaderComponent implements OnInit {
   }
 
   changeBoolean(boolean: boolean) {
-    this.servizioMessaggi.addMessaggi('Show button clicked!');
+    this.servizioMessaggi.addMessaggi('Toggle button clicked!');
     return this.boolean = boolean;
   }
 

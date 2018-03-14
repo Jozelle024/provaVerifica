@@ -10,13 +10,15 @@ import { MessagesService } from '../services/messages.service';
 export class BodyComponent implements OnInit {
   @Input() datoRicevuto: Dati;
   messaggi: string[];
+  counter: number;
   constructor(private servizioMessaggi: MessagesService) {
+    this.messaggi = this.servizioMessaggi.getMessaggi();
+    this.counter = this.servizioMessaggi.getCounter();
   }
   ngOnInit() {
-    this.messaggi = this.servizioMessaggi.getMessaggi();
-    console.log(this.messaggi);
   }
   clear() {
+    this.servizioMessaggi.clear();
     this.messaggi = [];
   }
 }

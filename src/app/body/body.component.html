@@ -4,7 +4,7 @@
     <h1 *ngIf="datoRicevuto">{{datoRicevuto.name}}</h1>
   </section>
   <section>
-    <h3>Log</h3>
+    <h3>Log <span>{{counter}}</span></h3>
     <button class="btn btn-primary" (click)="clear()">Clear</button>
     <ul *ngIf="messaggi && messaggi.length > 0">
       <li *ngFor="let messaggio of messaggi">{{messaggio}}</li>

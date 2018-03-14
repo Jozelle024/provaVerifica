@@ -14,3 +14,13 @@ section {
     padding: 10px;
 
 }
+h3 {
+    text-align: center;
+}
+.button{
+    display: flex;
+    justify-content: center;
+}
+button{
+    margin: 5px;
+}
