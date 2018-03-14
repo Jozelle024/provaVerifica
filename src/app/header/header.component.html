@@ -1,11 +1,14 @@
 <div class="container">
-  <h2>This is header component</h2>
-  <p><span>{{x}} {{y}}</span></p>
-  <p>Z is {{z}}</p>
-  <button class="btn btn-success" (click)="changeBoolean()">Click me!</button>
-  
-  <ul *ngIf="z">
-    <li *ngFor="let array of arrayString">
+  <h2>Header component</h2>
+  <p>{{name}}</p>
+  <p>This is the number: {{age}}</p>
+  <p>Boolean is {{boolean}}</p>
+  <div class="button">
+    <button class="btn btn-success" (click)="changeBoolean(true)">Show</button>
+    <button class="btn btn-danger" (click)="changeBoolean(false)">Hide</button>
+  </div>
+  <ul *ngIf="boolean" class="list-group">
+    <li *ngFor="let array of arrayString" class="list-group-item">
       {{array}}
     </li>
   </ul>

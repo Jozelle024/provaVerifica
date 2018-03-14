@@ -6,22 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  x: string;
-  y: number;
-  z: boolean;
+  name: string;
+  age: number;
+  boolean: boolean;
   arrayString: string[];
   constructor() {
-    this.x = 'This is a string';
-    this.y = 24;
-    this.z = false;
+    this.name = 'This is a string';
+    this.age = 24;
+    this.boolean = false;
     this.arrayString = ['This', 'is', 'an', 'array', 'of', 'string'];
    }
 
   ngOnInit() {
   }
 
-  changeBoolean() {
-    this.z = true;
+  changeBoolean(boolean: boolean) {
+    return this.boolean = boolean;
   }
 
 }
