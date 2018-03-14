@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ServizioDatiService } from './services/servizio-dati.service';
 import { BodyComponent } from './body/body.component';
+import { MessagesService } from './services/messages.service';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { BodyComponent } from './body/body.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [ServizioDatiService],
+  providers: [ServizioDatiService, MessagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
