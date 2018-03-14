@@ -1,0 +1,12 @@
+<div class="container">
+  <h2>This is header component</h2>
+  <p><span>{{x}} {{y}}</span></p>
+  <p>Z is {{z}}</p>
+  <button class="btn btn-success" (click)="changeBoolean()">Click me!</button>
+  
+  <ul *ngIf="z">
+    <li *ngFor="let array of arrayString">
+      {{array}}
+    </li>
+  </ul>
+</div>
