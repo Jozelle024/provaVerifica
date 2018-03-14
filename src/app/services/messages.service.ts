@@ -7,7 +7,6 @@ export class MessagesService {
   constructor() {
     this.messages = [];
     this.counter = 0;
-    console.log(this.counter);
    }
    getMessaggi(): string[] {
     return this.messages;
