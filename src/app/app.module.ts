@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
+import { ServizioDatiService } from './services/servizio-dati.service';
 
 
 @NgModule({
@@ -19,7 +20,7 @@ import { HeaderComponent } from './header/header.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ServizioDatiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

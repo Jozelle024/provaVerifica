@@ -1,15 +1,32 @@
-<div class="container">
+<div class="container headerContainer">
   <h2>Header component</h2>
-  <p>{{name}}</p>
-  <p>This is the number: {{age}}</p>
-  <p>Boolean is {{boolean}}</p>
-  <div class="button">
-    <button class="btn btn-success" (click)="changeBoolean(true)">Show</button>
-    <button class="btn btn-danger" (click)="changeBoolean(false)">Hide</button>
-  </div>
-  <ul *ngIf="boolean" class="list-group">
-    <li *ngFor="let array of arrayString" class="list-group-item">
-      {{array}}
-    </li>
-  </ul>
+  <!-- <p>{{name}}</p>
+  <p>This is the number: {{age}}</p> -->
+  <section>
+    <p>Boolean is {{boolean}}</p>
+    <div class="button">
+      <button class="btn btn-success" (click)="changeBoolean(true)">Show</button>
+      <button class="btn btn-danger" (click)="changeBoolean(false)">Hide</button>
+    </div>
+  
+  
+    <ul *ngIf="boolean" class="list-group">
+        <li *ngFor="let array of arrayString" class="list-group-item">
+          {{array}}
+        </li>
+    </ul>
+  </section>
+  
+
+  <section>
+    <button class="btn btn-success" (click)="visualizza()">Visualizza</button>
+    <button class="btn btn-primary" (click)="aggiungi()">Aggiungi</button>
+
+    <ul>
+      <li *ngFor="let dati of dati">
+         {{dati.id}} {{dati.name}}
+      </li>
+    </ul>
+  </section>
+
 </div>

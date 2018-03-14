@@ -3,14 +3,13 @@ import { Dati } from '../models/dati';
 
 @Injectable()
 export class ServizioDatiService {
-  dati: Dati[];
-
   constructor() {
-    this.dati = [{'id': 5 , 'name': 'jozelle', 'boolean': true }];
-   }
-  read() {
-    return this.dati;
   }
-  writeName(name: string) {
+  estraiDati(dati: Dati[]) {
+    return dati;
+  }
+  aggiungiDati(dati: Dati[], id: number, name: string, boolean: boolean) {
+    dati.push({id: id, name: name, boolean: boolean});
+    return dati;
   }
 }

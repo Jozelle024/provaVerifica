@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ServizioDatiService } from '../services/servizio-dati.service';
+import { Dati } from '../models/dati';
 
 @Component({
   selector: 'app-header',
@@ -7,15 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   name: string;
-  age: number;
+  id: number;
   boolean: boolean;
   arrayString: string[];
-  constructor() {
+  dati: Dati[];
+  constructor(private servizioDati: ServizioDatiService) {
     this.name = 'This is a string';
-    this.age = 24;
+    this.id = 24;
     this.boolean = false;
     this.arrayString = ['This', 'is', 'an', 'array', 'of', 'string'];
-   }
+    this.dati = [{id: 5, name: 'jozelle', boolean: true}];
+  }
 
   ngOnInit() {
   }
@@ -23,5 +27,14 @@ export class HeaderComponent implements OnInit {
   changeBoolean(boolean: boolean) {
     return this.boolean = boolean;
   }
+
+  visualizza() {
+    return this.servizioDati.estraiDati(this.dati);
+  }
+
+  aggiungi() {
+   this.dati = this.servizioDati.aggiungiDati(this.dati, this.id, this.name, this.boolean);
+    return this.dati;
+    }
 
 }
