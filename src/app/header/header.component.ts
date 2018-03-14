@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
     this.id = 24;
     this.boolean = false;
     this.arrayString = ['This', 'is', 'an', 'array', 'of', 'string'];
-    this.dati = [{id: 5, name: 'jozelle', boolean: true}];
+    /* this.dati = [{id: 5, name: 'jozelle', boolean: true}]; */
   }
 
   ngOnInit() {
@@ -29,7 +29,7 @@ export class HeaderComponent implements OnInit {
   }
 
   visualizza() {
-    return this.servizioDati.estraiDati(this.dati);
+    this.servizioDati.estraiDati().subscribe(dati => this.dati = dati);
   }
 
   aggiungi() {
