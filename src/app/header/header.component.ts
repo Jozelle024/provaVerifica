@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   boolean: boolean;
   arrayString: string[];
   dati: Dati[];
-  @Output() open: EventEmitter<string> = new EventEmitter();
+  @Output() open: EventEmitter<Dati> = new EventEmitter();
   constructor(private servizioDati: ServizioDatiService) {
     this.name = 'This is a string';
     this.id = 24;
@@ -38,7 +38,7 @@ export class HeaderComponent implements OnInit {
     return this.dati;
   }
 
-  visualizzaNelBody(dataName: string) {
-    this.open.emit(dataName);
+  visualizzaNelBody(dataSelezionata: Dati) {
+    this.open.emit(dataSelezionata);
   }
 }

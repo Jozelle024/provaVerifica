@@ -8,8 +8,8 @@ import { Dati } from './models/dati';
 })
 export class AppComponent {
   title = 'app';
-  dataPassata: string;
-  riceviData(dataNome: string) {
+  dataPassata: Dati;
+  riceviData(dataNome: Dati) {
     this.dataPassata = dataNome;
   }
 }
