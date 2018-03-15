@@ -10,12 +10,15 @@ import { MessagesService } from '../services/messages.service';
 export class BodyComponent implements OnInit {
   @Input() datoRicevuto: Dati;
   messaggi: string[];
-  counter: number;
+  counter = 0;
+  msgLength = 0;
   constructor(private servizioMessaggi: MessagesService) {
     this.messaggi = this.servizioMessaggi.getMessaggi();
-    this.counter = this.servizioMessaggi.getCounter();
   }
   ngOnInit() {
+    setInterval(() => {
+      this.counter += 1;
+    }, 2000);
   }
   clear() {
     this.servizioMessaggi.clear();
