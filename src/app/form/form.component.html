@@ -1,29 +1,26 @@
 <div class="container" id="formContainer">
-    <section>
-        <p>{{name}}</p>
-        <p>{{email}}</p>
-    </section>
+    
     <section>
         <form>
             <div class="form-group">
                 <label for="nameInput">Nome:</label>
-                <input type="text" class="form-control" id="nameInput" aria-describedby="emailHelp" placeholder="Inserisci il tuo nome">
-            </div>
+                <input type="text" [(ngModel)]="name" name="name" class="form-control" placeholder="Inserisci il tuo nome"/>
+           </div>
           <div class="form-group">
               <label for="emailInput">Email:</label>
-              <input type="email" class="form-control" id="emailInput" ng-value="email" aria-describedby="emailHelp" placeholder="Inserisci il tuo email">
+              <input  type="email" [(ngModel)]="email" name="email" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="Inserisci il tuo email">
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
           <div class="form-group">
               <label for="inputTitle">Titolo:</label>
-              <input type="text" class="form-control" id="inputTitle" aria-describedby="emailHelp" placeholder="Il titolo del tuo post">
+              <input [(ngModel)]="titolo" name="titolo" type="text" class="form-control" id="inputTitle" placeholder="Il titolo del tuo post">
           </div>
           <div class="form-group">
               <label for="inputTextArea">Post:</label>
-              <textarea  class="form-control "name="" id="inputTextArea" cols="30" rows="10" placeholder="Inserisci il tuo post"></textarea>
+              <textarea [(ngModel)]="postBody" class="form-control "name="postBody" id="inputTextArea" cols="30" rows="10" placeholder="Inserisci il tuo post"></textarea>
           </div>
           <div class="form-group">
-              <button type="submit" class="btn btn-success">Submit</button>
+              <button type="submit" class="btn btn-success"(click)="btnClicked(name)">Submit</button>
               <button type="reset" class="btn btn-danger">Reset</button>
           </div>
         </form>
