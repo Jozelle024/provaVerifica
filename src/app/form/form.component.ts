@@ -9,6 +9,7 @@ import { Post } from '../models/posts';
 })
 export class FormComponent implements OnInit {
   email: string;
+  name: string;
   post: Post;
   posts: Post[];
   constructor(private servizioJson: JsonPlaceholderService) {
