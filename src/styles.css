@@ -6,3 +6,7 @@ app-root{
     align-items: center;
     background-color: aliceblue;
 }
+
+app-form {
+    width: 80%;
+}

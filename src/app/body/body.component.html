@@ -1,6 +1,11 @@
 <div class="container bodyContainer" >
   <h2>Body Component</h2>
   <section>
+    <nav>
+      <li><a routerLink="/form">Crea il tuo post</a></li>
+    </nav>
+  </section>
+  <section>
     <h1 *ngIf="datoRicevuto">{{datoRicevuto.name}}</h1>
   </section>
   <section>

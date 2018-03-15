@@ -10,13 +10,15 @@ import { ServizioDatiService } from './services/servizio-dati.service';
 import { BodyComponent } from './body/body.component';
 import { MessagesService } from './services/messages.service';
 import { JsonPlaceholderService } from './services/json-placeholder.service';
+import { FormComponent } from './form/form.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    BodyComponent
+    BodyComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
