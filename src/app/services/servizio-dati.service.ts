@@ -18,4 +18,5 @@ export class ServizioDatiService {
     dati.push({id: id, name: name, boolean: boolean});
     return dati;
   }
+
 }

@@ -6,6 +6,7 @@ import { JsonPlaceholderService } from '../services/json-placeholder.service';
 import { Post } from '../models/posts';
 import { Commento } from '../models/commento';
 import { Album } from '../models/album';
+import { Foto } from '../models/foto';
 
 
 @Component({
@@ -21,11 +22,15 @@ export class HeaderComponent implements OnInit {
   dati: Dati[];
   elencoPost: Post[];
   elencoCommenti: Commento[];
+  elencoCommentiPost: Commento[];
   elencoAlbum: Album[];
+  elencoPhotos: Foto[];
+  elencoPhotosAlbum: Foto[];
   arrayIdPost: number[];
   postLength;
   commentiLength;
   albumLength;
+  fotoLength;
   datiLength;
 
   @Output() open: EventEmitter<Dati> = new EventEmitter();
@@ -36,25 +41,51 @@ export class HeaderComponent implements OnInit {
     this.id = 24;
     this.boolean = false;
     this.arrayString = ['This', 'is', 'an', 'array', 'of', 'string'];
-    this.arrayIdPost = [];
-    this.elencoPost = [];
+    this.elencoCommenti = [];
+    this.elencoPhotos = [];
   }
 
   ngOnInit() {
+    this.estraiPost();
     this.estraiPostCommenti();
+    this.estraiAlbum();
+    this.estraiAlbumPhotos();
   }
 
-  estraiPostCommenti() {
+  estraiPost() {
     this.servizioJsonPlaceholder.estraiPost().subscribe(posts => {
       this.elencoPost = posts;
       this.postLength = this.elencoPost.length;
       });
   }
 
+  estraiPostCommenti() {
+    this.servizioJsonPlaceholder.estraiCommenti().subscribe(commenti => {
+      this.elencoPost.forEach(post => {
+        this.elencoCommentiPost = commenti.filter(commento =>
+          commento.postId === post.id );
+        this.elencoCommenti = this.elencoCommenti.concat(this.elencoCommentiPost);
+      });
+      this.commentiLength = this.elencoCommenti.length;
+    });
+  }
+
   estraiAlbum() {
     this.servizioJsonPlaceholder.estraiAlbum().subscribe(album => {
       this.elencoAlbum = album;
       this.albumLength = this.elencoAlbum.length;
+      });
+  }
+
+  estraiAlbumPhotos() {
+    this.servizioJsonPlaceholder.estraiFoto().subscribe(photos => {
+      this.elencoAlbum.forEach(album => {
+        this.elencoPhotosAlbum = photos.filter(foto =>
+          foto.albumId === album.id );
+          this.elencoPhotos = this.elencoPhotos.concat(this.elencoPhotosAlbum);
+      });
+      console.log(this.elencoPhotos);
+      this.fotoLength = this.elencoPhotos.length;
     });
   }
 
