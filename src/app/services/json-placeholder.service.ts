@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Post } from '../models/posts';
 import { Commento } from '../models/commento';
@@ -8,9 +8,10 @@ import { Foto } from '../models/foto';
 
 @Injectable()
 export class JsonPlaceholderService {
-
-  constructor(private http: HttpClient) { }
   userId = 1;
+  constructor(private http: HttpClient) {
+  }
+
   estraiPost(): Observable<Post[]> {
     return this.http.get<Post[]>(`https://jsonplaceholder.typicode.com/posts?userId=${this.userId}`);
   }
@@ -25,5 +26,9 @@ export class JsonPlaceholderService {
 
   estraiFoto(): Observable<Foto[]> {
     return this.http.get<Foto[]>('https://jsonplaceholder.typicode.com/photos');
+  }
+
+  aggiungiPost(postDaAggiungere: Post): Observable<Post> {
+    return this.http.post<Post>('https://jsonplaceholder.typicode.com/posts', postDaAggiungere);
   }
 }

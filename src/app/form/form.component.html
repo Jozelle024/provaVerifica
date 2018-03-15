@@ -1,5 +1,8 @@
 <div class="container" id="formContainer">
     <section>
+        <p>{{email}}</p>
+    </section>
+    <section>
         <form>
             <div class="form-group">
                 <label for="nameInput">Nome:</label>
@@ -7,7 +10,7 @@
             </div>
           <div class="form-group">
               <label for="emailInput">Email:</label>
-              <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="Inserisci il tuo email">
+              <input type="email" class="form-control" id="emailInput" ng-value="email" aria-describedby="emailHelp" placeholder="Inserisci il tuo email">
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
           <div class="form-group">
@@ -19,7 +22,7 @@
               <textarea  class="form-control "name="" id="inputTextArea" cols="30" rows="10" placeholder="Inserisci il tuo post"></textarea>
           </div>
           <div class="form-group">
-              <button type="submit" class="btn btn-success">Submit</button>
+              <button type="submit" class="btn btn-success" (click)="createPost(2,2,'blabla','blabla')">Submit</button>
               <button type="reset" class="btn btn-danger">Reset</button>
           </div>
         </form>

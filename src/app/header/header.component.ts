@@ -84,7 +84,6 @@ export class HeaderComponent implements OnInit {
           foto.albumId === album.id );
           this.elencoPhotos = this.elencoPhotos.concat(this.elencoPhotosAlbum);
       });
-      console.log(this.elencoPhotos);
       this.fotoLength = this.elencoPhotos.length;
     });
   }
