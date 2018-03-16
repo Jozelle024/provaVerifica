@@ -26,8 +26,9 @@ export class FormComponent implements OnInit {
     this.controlUser(name);
     this.estraiNumeroPost();
     id = this.postsLength + 1;
-    this.post = new Post(this.userId, id, title, postBody);
-    this.servizioJson.aggiungiPost(this.post).subscribe(post => this.posts.push(this.post));
+    this.post = new Post(10, 1, title, postBody);
+    console.log(this.post);
+    this.servizioJson.aggiungiPost(this.post).subscribe(post => this.posts.push(post));
   }
   btnClicked(name: string) {
     this.name = name;
