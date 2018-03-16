@@ -5,6 +5,7 @@ import { Post } from '../models/posts';
 import { Commento } from '../models/commento';
 import { Album } from '../models/album';
 import { Foto } from '../models/foto';
+import { User } from '../models/users';
 
 @Injectable()
 export class JsonPlaceholderService {
@@ -30,5 +31,8 @@ export class JsonPlaceholderService {
 
   aggiungiPost(postDaAggiungere: Post): Observable<Post> {
     return this.http.post<Post>('https://jsonplaceholder.typicode.com/posts', postDaAggiungere);
+  }
+  estraiUsers(): Observable<User[]> {
+    return this.http.get<User[]>('https://jsonplaceholder.typicode.com/users');
   }
 }

@@ -26,5 +26,12 @@ export class FormComponent implements OnInit {
     this.name = name;
     console.log(name);
   }
+  controlUser(name: string) {
+    if (name !== this.name) {
+    // request a post
+    } else {
+      return name;
+    }
+  }
 
 }
