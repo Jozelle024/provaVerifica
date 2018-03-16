@@ -27,7 +27,7 @@ export class FormComponent implements OnInit {
     this.estraiNumeroPost();
     id = this.postsLength + 1;
     this.post = new Post(this.userId, id, title, postBody);
-    this.servizioJson.aggiungiPost(this.post).subscribe(post => this.posts.push(post));
+    this.servizioJson.aggiungiPost(this.post).subscribe(post => this.posts.push(this.post));
   }
   btnClicked(name: string) {
     this.name = name;
