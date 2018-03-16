@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { JsonPlaceholderService } from '../services/json-placeholder.service';
 import { Post } from '../models/posts';
+import { User } from '../models/users';
 
 @Component({
   selector: 'app-form',
@@ -12,26 +13,35 @@ export class FormComponent implements OnInit {
   name: string;
   post: Post;
   posts: Post[];
+  userId;
+  userLength;
+  postsLength;
   constructor(private servizioJson: JsonPlaceholderService) {
   }
 
   ngOnInit() {
   }
 
-  createPost(userId: number , id: number, title: string, postBody: string ) {
-    this.post = new Post(userId, id, title, postBody);
-    // this.servizioJson.aggiungiPost(this.post).subscribe(post => this.posts.push(post));
+  createPost(name: string , id: number, title: string, postBody: string ) {
+    this.controlUser(name);
+    this.estraiNumeroPost();
+    id = this.postsLength + 1;
+    this.post = new Post(this.userId, id, title, postBody);
+    this.servizioJson.aggiungiPost(this.post).subscribe(post => this.posts.push(post));
   }
   btnClicked(name: string) {
     this.name = name;
     console.log(name);
   }
   controlUser(name: string) {
-    if (name !== this.name) {
-    // request a post
-    } else {
-      return name;
-    }
+    this.servizioJson.estraiUsers().subscribe(users => {
+      this.userLength = users.length;
+      users.forEach(user => user.name !== name ? this.userId = this.userLength + 1 : this.userId);
+    });
   }
-
+  estraiNumeroPost() {
+    this.servizioJson.estraiPost().subscribe(posts => {
+      this.postsLength = posts.length;
+      });
+  }
 }
